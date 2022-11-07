@@ -1,0 +1,18 @@
+.certification {
+    padding: 2em;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s linear;
+  }
+
+  .certification:hover {
+    transform: translateY(-7px);
+  }
+  .certification__description {
+    margin-top: 1em;
+  }   
+  .certification .link--icon {
+    margin-left: 0.5em;
+  }
+  

@@ -30,6 +30,31 @@ const projects = [
   }, 
 ]
 
+const certifications = [
+  // certifications can be added an removed 
+  // if there are no certifications, Certifications section won't show up
+  {
+    name: 'The Complete Introduction to C++',
+    link: 'https://drive.google.com/file/d/1AzA9jIGf6IKf0KHRgx2oJorazLli4hk-/view?usp=sharing',
+  }, 
+  {
+    name: 'Hackerrank Problem Solving(Basic) Certicate',
+    link: 'https://drive.google.com/file/d/1AzA9jIGf6IKf0KHRgx2oJorazLli4hk-/view?usp=sharing',
+  }, 
+  {
+    name: 'Hackerrank Python(Basic) Certificate',
+    link: 'https://drive.google.com/file/d/1AzA9jIGf6IKf0KHRgx2oJorazLli4hk-/view?usp=sharing',
+  }, 
+  {
+    name: 'Data Science Foundations Certificate',
+    link: 'https://drive.google.com/file/d/1AzA9jIGf6IKf0KHRgx2oJorazLli4hk-/view?usp=sharing',
+  }, 
+  {
+    name: 'Python Fundamentals for Beginners Certificate',
+    link: 'https://drive.google.com/file/d/1AzA9jIGf6IKf0KHRgx2oJorazLli4hk-/view?usp=sharing',
+  }, 
+]
+
 const skills = [
   // skills can be added or removed
   // if there are no skills, Skills section won't show up
@@ -46,4 +71,4 @@ const contact = {
   email: 'anushkab0602@gmail.com',
 }
 
-export { header, about, projects, skills, contact }
+export { header, about, projects, certifications, skills, contact }
