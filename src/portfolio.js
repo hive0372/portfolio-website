@@ -7,9 +7,9 @@ const header = {
 const about = {
   // all the properties are optional - can be left empty or deleted
   name: 'Anushka',
-  role: 'Computer Science Engineering Student',
+  role: 'Computer Science Engineering Student ',
   description:
-    'I am Anushka Bandyopadhyay, a 2nd year computer science student currently doing B.Tech in SRM Institute of Science and Technology, KTR Chennai Campus',
+    'I am Anushka Bandyopadhyay,a fourth-year student pursuing a B. Tech in Computer Science with a specialization in Information Technology at SRMIST. Aspiring Data Science with strong skills in Python, MySQL, and machine learning techniques. Passionate about leveraging data analysis to uncover insights and drive data-informed decisions for impactful solutions.',
   resume: '',
   social: {
     linkedin: 'https://www.linkedin.com/in/anushka-bandyopadhyay-a64567224/',
@@ -28,6 +28,21 @@ const projects = [
     sourceCode: 'https://github.com/hive0372/LibManSys',
     livePreview: 'https://github.com/hive0372/LibManSys',
   }, 
+  {
+    name: 'Intern at Fuzone e system pvt. ltd.',
+    description:
+      'Developed a Python-based database management system for a coaching center, improving data handling efficiency by 25% through optimized queries and user-friendly features for student and course management.',
+    stack: ['sqlite'], 
+    sourceCode: 'https://docs.google.com/document/d/1MJ6WYRaN1X6u0PoP9JsaXlmoEJ3rkDt7/edit?usp=sharing&ouid=101945067749294695230&rtpof=true&sd=true',
+  },
+  {
+    name: 'ImageGenAI',
+    description:
+      'Developed an AI system to generate images from text, increasing the accuracy of outputs by 15% through iterative model training.',
+    stack: ['GoogleColab'],
+    sourceCode: 'https://github.com/hive0372/ImageGenAI/blob/main/ImageGenAI',
+  }, 
+  
 ]
 
 const certifications = [
@@ -53,6 +68,10 @@ const certifications = [
     name: 'Python Fundamentals for Beginners Certificate',
     link: 'https://drive.google.com/file/d/1AzA9jIGf6IKf0KHRgx2oJorazLli4hk-/view?usp=sharing',
   }, 
+  {
+    name: 'Oracle Machine Learning Using Autonomous Database',
+    link: 'https://drive.google.com/file/d/1MDSlHKDBJw568kf7Kye7xpZhAcqp3meo/view?usp=sharing',
+  }, 
 ]
 
 const skills = [
@@ -64,6 +83,8 @@ const skills = [
   'HTML',
   'CSS',
   'JavaScript',
+  'SQL',
+  'Django',
 ]
 
 const contact = {
