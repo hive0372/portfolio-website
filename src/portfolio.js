@@ -11,7 +11,7 @@ const about = {
   description:
     'I am Anushka Bandyopadhyay, a fourth-year student pursuing a B. Tech in Computer Science with a specialization in Information Technology at SRMIST. Aspiring Data Science professional with strong skills in Python, MySQL, and machine learning techniques. Passionate about leveraging data analysis to uncover insights and drive data-informed decisions for impactful solutions.',
   resume: 'https://drive.google.com/file/d/1AzA9jIGf6IKf0KHRgx2oJorazLli4hk-/view?usp=sharing',
-  profileImage: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+
   skills: ['Python', 'Data Science', 'Machine Learning', 'SQL', 'Problem Solving'],
   social: {
     linkedin: 'https://www.linkedin.com/in/anushka-bandyopadhyay-a64567224/',
@@ -173,28 +173,7 @@ const certifications = [
   }
 ]
 
-const testimonials = [
-  // testimonials can be added or removed
-  // if there are no testimonials, Testimonials section won't show up
-  {
-    name: 'Dr. Rajesh Kumar',
-    role: 'Professor, SRMIST',
-    text: 'Anushka is an exceptional student with a strong aptitude for data science and machine learning. Her analytical skills and attention to detail make her stand out among her peers.',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-  },
-  {
-    name: 'Priya Sharma',
-    role: 'Senior Data Scientist, Fuzone',
-    text: 'During her internship, Anushka demonstrated remarkable problem-solving abilities and a quick learning curve. Her contributions to our database project were invaluable.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-  },
-  {
-    name: 'Rahul Verma',
-    role: 'Project Lead, SRMIST Research Lab',
-    text: 'Working with Anushka on the ImageGenAI project was a pleasure. Her dedication to improving model accuracy and her innovative approaches to problem-solving were impressive.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
-  }
-]
+const testimonials = []
 
 const contact = {
   // email is optional - if left empty Contact section won't show up

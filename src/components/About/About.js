@@ -9,29 +9,8 @@ import Typewriter from 'typewriter-effect'
 import { useState } from 'react'
 
 const About = () => {
-  const { name, role, description, resume, social, profileImage, skills } = about
+  const { name, role, description, resume, social, skills } = about
   const [isResumeHovered, setIsResumeHovered] = useState(false)
-  const [isImageHovered, setIsImageHovered] = useState(false)
-  
-  const imageVariants = {
-    initial: { 
-      opacity: 0, 
-      scale: 0.8,
-      rotateY: 0
-    },
-    animate: { 
-      opacity: 1, 
-      scale: 1,
-      rotateY: 0,
-      transition: { duration: 0.5 }
-    },
-    hover: { 
-      scale: 1.05,
-      rotateY: 10,
-      boxShadow: "0 15px 30px rgba(0, 0, 0, 0.2)",
-      transition: { duration: 0.3 }
-    }
-  }
   
   return (
     <div className='about'>
@@ -115,44 +94,7 @@ const About = () => {
           </Fade>
         </div>
 
-        {profileImage && (
-          <Fade right duration={1000}>
-            <div className='about__image-container'>
-              <motion.div
-                className="about__image-wrapper"
-                animate={{ 
-                  boxShadow: isImageHovered 
-                    ? "0 20px 40px rgba(0, 0, 0, 0.3)" 
-                    : "0 10px 20px rgba(0, 0, 0, 0.1)"
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <motion.img 
-                  src={profileImage} 
-                  alt={name} 
-                  className='about__image'
-                  variants={imageVariants}
-                  initial="initial"
-                  animate="animate"
-                  whileHover="hover"
-                  onMouseEnter={() => setIsImageHovered(true)}
-                  onMouseLeave={() => setIsImageHovered(false)}
-                />
-                {isImageHovered && (
-                  <motion.div 
-                    className="about__image-overlay"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <span>Hello!</span>
-                  </motion.div>
-                )}
-              </motion.div>
-            </div>
-          </Fade>
-        )}
+
       </div>
 
       {skills && skills.length > 0 && (
