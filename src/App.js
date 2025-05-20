@@ -9,6 +9,7 @@ import Skills from './components/Skills/Skills'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
+import CloudBackground from './components/CloudBackground/CloudBackground'
 import './App.css'
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
 
   return (
     <div id='top' className={`${themeName} app`}>
+      <CloudBackground />
       <Header />
 
       <main>

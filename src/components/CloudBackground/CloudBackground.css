@@ -1,0 +1,80 @@
+.cloud-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.cloud {
+  position: absolute;
+  border-radius: 50%;
+  background-color: transparent;
+  transform-style: preserve-3d;
+}
+
+.cloud-part {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 40px rgba(255, 255, 255, 0.3),
+    0 0 60px rgba(255, 255, 255, 0.1);
+  filter: blur(5px);
+}
+
+.cloud-part-1 {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.cloud-part-2 {
+  width: 60%;
+  height: 60%;
+  top: 10%;
+  left: 25%;
+  transform: translateZ(10px);
+}
+
+.cloud-part-3 {
+  width: 40%;
+  height: 40%;
+  top: 20%;
+  left: 50%;
+  transform: translateZ(20px);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .cloud-part {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.1),
+      0 0 40px rgba(255, 255, 255, 0.05),
+      0 0 60px rgba(255, 255, 255, 0.02);
+  }
+}
+
+/* For light/dark theme toggle */
+:root[data-theme='dark'] .cloud-part {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.1),
+    0 0 40px rgba(255, 255, 255, 0.05),
+    0 0 60px rgba(255, 255, 255, 0.02);
+}
+
+:root[data-theme='light'] .cloud-part {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 40px rgba(255, 255, 255, 0.3),
+    0 0 60px rgba(255, 255, 255, 0.1);
+}

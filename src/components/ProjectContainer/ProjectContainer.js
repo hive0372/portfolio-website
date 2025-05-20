@@ -2,20 +2,16 @@ import uniqid from 'uniqid'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import LaunchIcon from '@material-ui/icons/Launch'
 import CategoryIcon from '@material-ui/icons/Category'
-import CodeIcon from '@material-ui/icons/Code'
 import StorageIcon from '@material-ui/icons/Storage'
 import BarChartIcon from '@material-ui/icons/BarChart'
 import BubbleChartIcon from '@material-ui/icons/BubbleChart'
 import './ProjectContainer.css'
 import { motion } from 'framer-motion'
 import Fade from 'react-reveal/Fade'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const ProjectContainer = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [elementPosition, setElementPosition] = useState({ top: 0, left: 0, width: 0, height: 0 })
-  const [rotation, setRotation] = useState({ x: 0, y: 0 })
   
   // Get project icon based on category
   const getProjectIcon = () => {
@@ -27,308 +23,165 @@ const ProjectContainer = ({ project }) => {
     return <CategoryIcon className="project__category-icon" />;
   };
   
-  // Track mouse position for 3D effect
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-  
-  // Calculate 3D rotation effect
-  useEffect(() => {
-    if (isHovered && elementPosition.width > 0) {
-      const centerX = elementPosition.left + elementPosition.width / 2;
-      const centerY = elementPosition.top + elementPosition.height / 2;
-      
-      // Calculate rotation based on mouse distance from center (max 10 degrees)
-      const rotateY = ((mousePosition.x - centerX) / (elementPosition.width / 2)) * 5;
-      const rotateX = ((centerY - mousePosition.y) / (elementPosition.height / 2)) * 5;
-      
-      setRotation({ x: rotateX, y: rotateY });
-    } else {
-      setRotation({ x: 0, y: 0 });
-    }
-  }, [mousePosition, isHovered, elementPosition]);
-  
-  // Update element position on hover
-  const updateElementPosition = (element) => {
-    if (element) {
-      const rect = element.getBoundingClientRect();
-      setElementPosition({
-        top: rect.top,
-        left: rect.left,
-        width: rect.width,
-        height: rect.height
-      });
-    }
-  };
-  
   return (
   <Fade bottom duration={1000}>
     <motion.div 
-      className='project project-3d'
-      style={{
-        perspective: '1000px',
-        transformStyle: 'preserve-3d'
-      }}
+      className='project'
       whileHover={{ 
         y: -10,
         boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)'
       }}
       transition={{ duration: 0.3 }}
-      onHoverStart={(e) => {
-        setIsHovered(true);
-        updateElementPosition(e.target);
-      }}
+      onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <motion.div
-        className="project__inner"
-        style={{
-          transformStyle: 'preserve-3d'
-        }}
-        animate={{
-          rotateX: rotation.x,
-          rotateY: rotation.y
-        }}
-        transition={{
-          type: 'spring',
-          stiffness: 300,
-          damping: 20
-        }}
-      >
-        {project.imageUrl && (
-          <div className='project__image-container'>
-            <motion.img 
-              src={project.imageUrl} 
-              alt={project.name} 
-              className='project__image'
-              initial={{ scale: 1 }}
-              animate={{ scale: isHovered ? 1.05 : 1 }}
-              transition={{ duration: 0.5 }}
-              style={{
-                transformStyle: 'preserve-3d',
-                transform: 'translateZ(10px)'
-              }}
-            />
-            <motion.div 
-              className="project__image-overlay"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: isHovered ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
-              style={{
-                transformStyle: 'preserve-3d',
-                transform: 'translateZ(20px)'
-              }}
-            >
-              <motion.div 
-                className="project__overlay-content"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-              >
-                <motion.span
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    textShadow: [
-                      '0 0 0px rgba(255,255,255,0)',
-                      '0 0 10px rgba(255,255,255,0.5)',
-                      '0 0 0px rgba(255,255,255,0)'
-                    ]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatType: 'loop'
-                  }}
-                >
-                  View Project
-                </motion.span>
-              </motion.div>
-            </motion.div>
-          </div>
-        )}
-        
-        <motion.div 
-          className='project__content'
-          style={{
-            transformStyle: 'preserve-3d',
-            transform: 'translateZ(5px)'
-          }}
-        >
-          <motion.h3 
-            className='project__title'
-            style={{
-              transformStyle: 'preserve-3d',
-              transform: 'translateZ(15px)'
-            }}
+      {project.imageUrl && (
+        <div className='project__image-container'>
+          <motion.img 
+            src={project.imageUrl} 
+            alt={project.name} 
+            className='project__image'
+            initial={{ scale: 1 }}
+            animate={{ scale: isHovered ? 1.05 : 1 }}
+            transition={{ duration: 0.5 }}
+          />
+          <motion.div 
+            className="project__image-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHovered ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
           >
-            {project.name}
-          </motion.h3>
-          
-          {project.category && (
             <motion.div 
-              className='project__category project__category-3d'
-              animate={{ 
-                backgroundColor: isHovered ? 'var(--clr-primary)' : 'var(--clr-bg)',
-                color: isHovered ? 'var(--clr-bg)' : 'var(--clr-primary)',
-                boxShadow: isHovered ? '0 5px 15px rgba(var(--rgb-primary), 0.3)' : 'none'
-              }}
-              style={{
-                transformStyle: 'preserve-3d',
-                transform: 'translateZ(20px)'
-              }}
+              className="project__overlay-content"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
             >
-              <motion.div
+              <motion.span
                 animate={{
-                  rotateY: isHovered ? [0, 360] : 0
+                  scale: [1, 1.1, 1],
+                  textShadow: [
+                    '0 0 0px rgba(255,255,255,0)',
+                    '0 0 10px rgba(255,255,255,0.5)',
+                    '0 0 0px rgba(255,255,255,0)'
+                  ]
                 }}
                 transition={{
-                  duration: 1,
-                  ease: 'easeInOut'
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: 'loop'
                 }}
               >
-                {getProjectIcon()}
-              </motion.div>
-              {project.category}
+                View Project
+              </motion.span>
             </motion.div>
-          )}
-
-          <motion.p 
-            className='project__description'
-            style={{
-              transformStyle: 'preserve-3d',
-              transform: 'translateZ(10px)'
+          </motion.div>
+        </div>
+      )}
+      
+      <div className='project__content'>
+        <h3 className='project__title'>
+          {project.name}
+        </h3>
+        
+        {project.category && (
+          <motion.div 
+            className='project__category'
+            animate={{ 
+              backgroundColor: isHovered ? 'var(--clr-primary)' : 'var(--clr-bg)',
+              color: isHovered ? 'var(--clr-bg)' : 'var(--clr-primary)',
+              boxShadow: isHovered ? '0 5px 15px rgba(var(--rgb-primary), 0.3)' : 'none'
             }}
           >
-            {project.description}
-          </motion.p>
-          
-          {project.stack && (
-            <motion.ul 
-              className='project__stack'
-              style={{
-                transformStyle: 'preserve-3d',
-                transform: 'translateZ(15px)'
+            <motion.div
+              animate={{
+                rotateY: isHovered ? [0, 360] : 0
+              }}
+              transition={{
+                duration: 1,
+                ease: 'easeInOut'
               }}
             >
-              {project.stack.map((item, index) => (
-                <motion.li 
-                  key={uniqid()} 
-                  className='project__stack-item project__stack-item-3d'
-                  whileHover={{ 
-                    scale: 1.1,
-                    backgroundColor: 'var(--clr-primary)',
-                    color: 'var(--clr-bg)',
-                    y: -5,
-                    boxShadow: '0 5px 15px rgba(var(--rgb-primary), 0.3)'
-                  }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.3, 
-                    delay: 0.1 + (index * 0.05)
-                  }}
-                >
-                  {item}
-                </motion.li>
-              ))}
-            </motion.ul>
+              {getProjectIcon()}
+            </motion.div>
+            {project.category}
+          </motion.div>
+        )}
+
+        <p className='project__description'>
+          {project.description}
+        </p>
+        
+        {project.stack && (
+          <ul className='project__stack'>
+            {project.stack.map((item, index) => (
+              <motion.li 
+                key={uniqid()} 
+                className='project__stack-item'
+                whileHover={{ 
+                  scale: 1.1,
+                  backgroundColor: 'var(--clr-primary)',
+                  color: 'var(--clr-bg)',
+                  y: -5,
+                  boxShadow: '0 5px 15px rgba(var(--rgb-primary), 0.3)'
+                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.3, 
+                  delay: 0.1 + (index * 0.05)
+                }}
+              >
+                {item}
+              </motion.li>
+            ))}
+          </ul>
+        )}
+
+        <div className='project__links'>
+          {project.sourceCode && (
+            <motion.a
+              href={project.sourceCode}
+              aria-label='source code'
+              className='project__link'
+              whileHover={{ 
+                scale: 1.1, 
+                backgroundColor: 'var(--clr-primary)',
+                color: 'var(--clr-bg)',
+                boxShadow: '0 5px 15px rgba(var(--rgb-primary), 0.3)'
+              }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+            >
+              <GitHubIcon className="project__link-icon" />
+              Code
+            </motion.a>
           )}
 
-          <motion.div 
-            className='project__links'
-            style={{
-              transformStyle: 'preserve-3d',
-              transform: 'translateZ(20px)'
-            }}
-          >
-            {project.sourceCode && (
-              <motion.a
-                href={project.sourceCode}
-                aria-label='source code'
-                className='project__link project__link-3d'
-                whileHover={{ 
-                  scale: 1.1, 
-                  backgroundColor: 'var(--clr-primary)',
-                  color: 'var(--clr-bg)',
-                  boxShadow: '0 5px 15px rgba(var(--rgb-primary), 0.3)'
-                }}
-                whileTap={{ scale: 0.9 }}
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.1 }}
-              >
-                <motion.div
-                  animate={isHovered ? { rotateY: [0, 360] } : { rotateY: 0 }}
-                  transition={{ duration: 1.5, ease: 'easeInOut' }}
-                >
-                  <GitHubIcon className="project__link-icon" />
-                </motion.div>
-                Code
-              </motion.a>
-            )}
-
-            {project.livePreview && (
-              <motion.a
-                href={project.livePreview}
-                aria-label='live preview'
-                className='project__link project__link-3d'
-                whileHover={{ 
-                  scale: 1.1, 
-                  backgroundColor: 'var(--clr-primary)',
-                  color: 'var(--clr-bg)',
-                  boxShadow: '0 5px 15px rgba(var(--rgb-primary), 0.3)'
-                }}
-                whileTap={{ scale: 0.9 }}
-                initial={{ x: 20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.2 }}
-              >
-                <motion.div
-                  animate={isHovered ? { rotateY: [0, 360] } : { rotateY: 0 }}
-                  transition={{ duration: 1.5, ease: 'easeInOut', delay: 0.2 }}
-                >
-                  <LaunchIcon className="project__link-icon" />
-                </motion.div>
-                Demo
-              </motion.a>
-            )}
-          </motion.div>
-        </motion.div>
-        
-        {/* 3D decorative elements */}
-        <div className="project__decorations">
-          <motion.div 
-            className="project__decoration project__decoration-1"
-            animate={{
-              rotateZ: [0, 360],
-              y: [0, -5, 0]
-            }}
-            transition={{
-              rotateZ: { duration: 20, repeat: Infinity, ease: "linear" },
-              y: { duration: 2, repeat: Infinity, repeatType: "reverse" }
-            }}
-          />
-          <motion.div 
-            className="project__decoration project__decoration-2"
-            animate={{
-              rotateZ: [360, 0],
-              x: [0, 5, 0]
-            }}
-            transition={{
-              rotateZ: { duration: 25, repeat: Infinity, ease: "linear" },
-              x: { duration: 3, repeat: Infinity, repeatType: "reverse" }
-            }}
-          />
+          {project.livePreview && (
+            <motion.a
+              href={project.livePreview}
+              aria-label='live preview'
+              className='project__link'
+              whileHover={{ 
+                scale: 1.1, 
+                backgroundColor: 'var(--clr-primary)',
+                color: 'var(--clr-bg)',
+                boxShadow: '0 5px 15px rgba(var(--rgb-primary), 0.3)'
+              }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ x: 20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+            >
+              <LaunchIcon className="project__link-icon" />
+              Demo
+            </motion.a>
+          )}
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   </Fade>
   )
