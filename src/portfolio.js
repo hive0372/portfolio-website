@@ -119,9 +119,9 @@ const skills = [
     description: 'Developed interactive web applications and implemented client-side functionality using JavaScript and basic frameworks.'
   },
   {
-    name: 'Django',
-    level: 60,
-    description: 'Built web applications using the Django framework, including database models, views, and templates.'
+    name: 'Data Visualization',
+    level: 80,
+    description: 'Created interactive and insightful data visualizations using libraries like Matplotlib, Seaborn, and Plotly to communicate complex data insights.'
   }
 ]
 
