@@ -7,15 +7,46 @@ const header = {
 const about = {
   // all the properties are optional - can be left empty or deleted
   name: 'Anushka',
-  role: 'Computer Science Engineering Student ',
+  role: 'Computer Science Engineering Student',
   description:
-    'I am Anushka Bandyopadhyay,a fourth-year student pursuing a B. Tech in Computer Science with a specialization in Information Technology at SRMIST. Aspiring Data Science with strong skills in Python, MySQL, and machine learning techniques. Passionate about leveraging data analysis to uncover insights and drive data-informed decisions for impactful solutions.',
-  resume: '',
+    'I am Anushka Bandyopadhyay, a fourth-year student pursuing a B. Tech in Computer Science with a specialization in Information Technology at SRMIST. Aspiring Data Science professional with strong skills in Python, MySQL, and machine learning techniques. Passionate about leveraging data analysis to uncover insights and drive data-informed decisions for impactful solutions.',
+  resume: 'https://drive.google.com/file/d/1AzA9jIGf6IKf0KHRgx2oJorazLli4hk-/view?usp=sharing',
+  profileImage: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+  skills: ['Python', 'Data Science', 'Machine Learning', 'SQL', 'Problem Solving'],
   social: {
     linkedin: 'https://www.linkedin.com/in/anushka-bandyopadhyay-a64567224/',
     github: 'https://github.com/hive0372',
   },
 }
+
+const experience = [
+  // experience can be added or removed
+  // if there are no experience items, Experience section won't show up
+  {
+    role: 'Data Science Intern',
+    company: 'Fuzone e system pvt. ltd.',
+    duration: 'May 2023 - August 2023',
+    description: [
+      'Developed a Python-based database management system for a coaching center, improving data handling efficiency by 25%',
+      'Implemented optimized SQL queries for faster data retrieval and analysis',
+      'Created user-friendly features for student and course management',
+      'Collaborated with a team of 5 developers to deliver the project on time'
+    ],
+    technologies: ['Python', 'SQLite', 'Data Analysis', 'UI/UX Design']
+  },
+  {
+    role: 'Machine Learning Research Assistant',
+    company: 'SRMIST Research Lab',
+    duration: 'January 2023 - April 2023',
+    description: [
+      'Assisted in developing an AI system to generate images from text prompts',
+      'Increased the accuracy of outputs by 15% through iterative model training',
+      'Implemented and tested various machine learning algorithms',
+      'Documented research findings and presented results to faculty'
+    ],
+    technologies: ['Python', 'TensorFlow', 'Google Colab', 'Computer Vision']
+  }
+]
 
 const projects = [
   // projects can be added an removed
@@ -23,26 +54,94 @@ const projects = [
   {
     name: 'Library Management System',
     description:
-      'Library Management System using python. It manages information of the customers taking books or giving it back, the dates when it was returned, and which book was taken or returned to the library',
-    stack: ['python'],
+      'Library Management System using Python. It manages information of the customers taking books or giving it back, the dates when it was returned, and which book was taken or returned to the library.',
+    stack: ['Python', 'Database', 'UI Design'],
     sourceCode: 'https://github.com/hive0372/LibManSys',
     livePreview: 'https://github.com/hive0372/LibManSys',
+    imageUrl: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    category: 'Database Systems'
   }, 
   {
-    name: 'Intern at Fuzone e system pvt. ltd.',
+    name: 'Coaching Center Database System',
     description:
       'Developed a Python-based database management system for a coaching center, improving data handling efficiency by 25% through optimized queries and user-friendly features for student and course management.',
-    stack: ['sqlite'], 
+    stack: ['Python', 'SQLite', 'Data Analysis'], 
     sourceCode: 'https://docs.google.com/document/d/1MJ6WYRaN1X6u0PoP9JsaXlmoEJ3rkDt7/edit?usp=sharing&ouid=101945067749294695230&rtpof=true&sd=true',
+    imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    category: 'Database Systems'
   },
   {
     name: 'ImageGenAI',
     description:
-      'Developed an AI system to generate images from text, increasing the accuracy of outputs by 15% through iterative model training.',
-    stack: ['GoogleColab'],
+      'Developed an AI system to generate images from text, increasing the accuracy of outputs by 15% through iterative model training. Used advanced machine learning techniques and neural networks.',
+    stack: ['Python', 'TensorFlow', 'Google Colab'],
     sourceCode: 'https://github.com/hive0372/ImageGenAI/blob/main/ImageGenAI',
-  }, 
-  
+    imageUrl: 'https://images.unsplash.com/photo-1551033406-611cf9a28f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    category: 'Machine Learning'
+  },
+  {
+    name: 'Data Visualization Dashboard',
+    description:
+      'Created an interactive dashboard for visualizing complex datasets, enabling users to gain insights through customizable charts and filters. Implemented using Python and modern visualization libraries.',
+    stack: ['Python', 'Plotly', 'Dash', 'Pandas'],
+    sourceCode: 'https://github.com/hive0372',
+    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    category: 'Data Science'
+  },
+  {
+    name: 'Personal Finance Tracker',
+    description:
+      'Developed a web application that helps users track their expenses, create budgets, and visualize spending patterns. Features include expense categorization and financial goal setting.',
+    stack: ['Python', 'Django', 'JavaScript', 'Chart.js'],
+    sourceCode: 'https://github.com/hive0372',
+    imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    category: 'Web Development'
+  }
+]
+
+const skills = [
+  // skills can be added or removed
+  // if there are no skills, Skills section won't show up
+  {
+    name: 'Python',
+    level: 90,
+    description: 'Proficient in Python programming with experience in data analysis, machine learning, and web development using frameworks like Django.'
+  },
+  {
+    name: 'Data Science',
+    level: 85,
+    description: 'Strong foundation in data analysis, visualization, and statistical methods. Experienced with pandas, NumPy, and data visualization libraries.'
+  },
+  {
+    name: 'Machine Learning',
+    level: 80,
+    description: 'Implemented various ML algorithms including regression, classification, and clustering. Familiar with TensorFlow and scikit-learn.'
+  },
+  {
+    name: 'SQL',
+    level: 85,
+    description: 'Experienced in database design, complex queries, and database management systems. Proficient with SQLite and MySQL.'
+  },
+  {
+    name: 'C++',
+    level: 75,
+    description: 'Strong understanding of object-oriented programming concepts and data structures using C++.'
+  },
+  {
+    name: 'HTML/CSS',
+    level: 70,
+    description: 'Created responsive web designs and user interfaces using modern HTML5 and CSS3 techniques.'
+  },
+  {
+    name: 'JavaScript',
+    level: 65,
+    description: 'Developed interactive web applications and implemented client-side functionality using JavaScript and basic frameworks.'
+  },
+  {
+    name: 'Django',
+    level: 60,
+    description: 'Built web applications using the Django framework, including database models, views, and templates.'
+  }
 ]
 
 const certifications = [
@@ -53,7 +152,7 @@ const certifications = [
     link: 'https://drive.google.com/file/d/1AzA9jIGf6IKf0KHRgx2oJorazLli4hk-/view?usp=sharing',
   }, 
   {
-    name: 'Hackerrank Problem Solving(Basic) Certicate',
+    name: 'Hackerrank Problem Solving(Basic) Certificate',
     link: 'https://drive.google.com/file/d/1AzA9jIGf6IKf0KHRgx2oJorazLli4hk-/view?usp=sharing',
   }, 
   {
@@ -71,25 +170,54 @@ const certifications = [
   {
     name: 'Oracle Machine Learning Using Autonomous Database',
     link: 'https://drive.google.com/file/d/1MDSlHKDBJw568kf7Kye7xpZhAcqp3meo/view?usp=sharing',
-  }, 
+  }
 ]
 
-const skills = [
-  // skills can be added or removed
-  // if there are no skills, Skills section won't show up
-  'Python',
-  'C++',
-  'C',
-  'HTML',
-  'CSS',
-  'JavaScript',
-  'SQL',
-  'Django',
+const testimonials = [
+  // testimonials can be added or removed
+  // if there are no testimonials, Testimonials section won't show up
+  {
+    name: 'Dr. Rajesh Kumar',
+    role: 'Professor, SRMIST',
+    text: 'Anushka is an exceptional student with a strong aptitude for data science and machine learning. Her analytical skills and attention to detail make her stand out among her peers.',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+  },
+  {
+    name: 'Priya Sharma',
+    role: 'Senior Data Scientist, Fuzone',
+    text: 'During her internship, Anushka demonstrated remarkable problem-solving abilities and a quick learning curve. Her contributions to our database project were invaluable.',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+  },
+  {
+    name: 'Rahul Verma',
+    role: 'Project Lead, SRMIST Research Lab',
+    text: 'Working with Anushka on the ImageGenAI project was a pleasure. Her dedication to improving model accuracy and her innovative approaches to problem-solving were impressive.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+  }
 ]
 
 const contact = {
   // email is optional - if left empty Contact section won't show up
   email: 'anushkab0602@gmail.com',
+  phone: '+91 9876543210',
+  location: 'Chennai, Tamil Nadu, India',
+  social: [
+    {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/anushka-bandyopadhyay-a64567224/',
+      icon: <i className="fab fa-linkedin"></i>
+    },
+    {
+      name: 'GitHub',
+      url: 'https://github.com/hive0372',
+      icon: <i className="fab fa-github"></i>
+    },
+    {
+      name: 'Twitter',
+      url: 'https://twitter.com',
+      icon: <i className="fab fa-twitter"></i>
+    }
+  ]
 }
 
-export { header, about, projects, certifications, skills, contact }
+export { header, about, experience, projects, skills, certifications, testimonials, contact }

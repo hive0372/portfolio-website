@@ -1,0 +1,69 @@
+.experience__grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.experience__item {
+  background-color: var(--clr-bg-alt);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.experience__header {
+  margin-bottom: 1rem;
+}
+
+.experience__role {
+  color: var(--clr-primary);
+  margin-bottom: 0.5rem;
+}
+
+.experience__company {
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.experience__duration {
+  font-size: 0.9rem;
+  color: var(--clr-fg-alt);
+  margin-bottom: 1rem;
+}
+
+.experience__description {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.experience__description li {
+  margin-bottom: 0.5rem;
+}
+
+.experience__technologies h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.experience__tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.experience__tech-item {
+  background-color: var(--clr-primary);
+  color: var(--clr-bg);
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 600px) {
+  .experience__grid {
+    grid-template-columns: 1fr;
+  }
+}
