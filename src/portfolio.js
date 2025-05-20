@@ -58,7 +58,7 @@ const projects = [
     stack: ['Python', 'Database', 'UI Design'],
     sourceCode: 'https://github.com/hive0372/LibManSys',
     livePreview: 'https://github.com/hive0372/LibManSys',
-    imageUrl: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+
     category: 'Database Systems'
   }, 
   {
@@ -67,7 +67,7 @@ const projects = [
       'Developed a Python-based database management system for a coaching center, improving data handling efficiency by 25% through optimized queries and user-friendly features for student and course management.',
     stack: ['Python', 'SQLite', 'Data Analysis'], 
     sourceCode: 'https://docs.google.com/document/d/1MJ6WYRaN1X6u0PoP9JsaXlmoEJ3rkDt7/edit?usp=sharing&ouid=101945067749294695230&rtpof=true&sd=true',
-    imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+
     category: 'Database Systems'
   },
   {
@@ -76,7 +76,7 @@ const projects = [
       'Developed an AI system to generate images from text, increasing the accuracy of outputs by 15% through iterative model training. Used advanced machine learning techniques and neural networks.',
     stack: ['Python', 'TensorFlow', 'Google Colab'],
     sourceCode: 'https://github.com/hive0372/ImageGenAI/blob/main/ImageGenAI',
-    imageUrl: 'https://images.unsplash.com/photo-1551033406-611cf9a28f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+
     category: 'Machine Learning'
   },
   {
@@ -85,7 +85,7 @@ const projects = [
       'Created an interactive dashboard for visualizing complex datasets, enabling users to gain insights through customizable charts and filters. Implemented using Python and modern visualization libraries.',
     stack: ['Python', 'Plotly', 'Dash', 'Pandas'],
     sourceCode: 'https://github.com/hive0372',
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+
     category: 'Data Science'
   },
   {
@@ -94,7 +94,7 @@ const projects = [
       'Developed a web application that helps users track their expenses, create budgets, and visualize spending patterns. Features include expense categorization and financial goal setting.',
     stack: ['Python', 'Django', 'JavaScript', 'Chart.js'],
     sourceCode: 'https://github.com/hive0372',
-    imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+
     category: 'Web Development'
   }
 ]
