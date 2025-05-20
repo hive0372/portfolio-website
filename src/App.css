@@ -9,11 +9,19 @@
 .light {
   --clr-bg: #fcfcfc;
   --clr-bg-alt: #fff;
+  --rgb-bg: 252, 252, 252;
+  --rgb-bg-alt: 255, 255, 255;
   --clr-fg: #555;
   --clr-fg-alt: #444;
+  --rgb-fg: 85, 85, 85;
+  --rgb-fg-alt: 68, 68, 68;
   --clr-primary: #2978b5;
-  --clr-primary-rgb: 41, 120, 181;
+  --rgb-primary: 41, 120, 181;
   --clr-primary-light: rgba(41, 120, 181, 0.1);
+  --clr-secondary: #4e54c8;
+  --rgb-secondary: 78, 84, 200;
+  --clr-accent: #00c9a7;
+  --rgb-accent: 0, 201, 167;
   --clr-success: #4caf50;
   --clr-success-light: rgba(76, 175, 80, 0.1);
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -23,11 +31,19 @@
 .dark {
   --clr-bg: #23283e;
   --clr-bg-alt: #2a2f4c;
+  --rgb-bg: 35, 40, 62;
+  --rgb-bg-alt: 42, 47, 76;
   --clr-fg: #bdbddd;
   --clr-fg-alt: #cdcdff;
+  --rgb-fg: 189, 189, 221;
+  --rgb-fg-alt: 205, 205, 255;
   --clr-primary: #90a0d9;
-  --clr-primary-rgb: 144, 160, 217;
+  --rgb-primary: 144, 160, 217;
   --clr-primary-light: rgba(144, 160, 217, 0.1);
+  --clr-secondary: #8a85ff;
+  --rgb-secondary: 138, 133, 255;
+  --clr-accent: #00e6c3;
+  --rgb-accent: 0, 230, 195;
   --clr-success: #81c784;
   --clr-success-light: rgba(129, 199, 132, 0.1);
   --shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,

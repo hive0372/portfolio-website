@@ -1,16 +1,35 @@
 import GitHubIcon from '@material-ui/icons/GitHub'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
-import GetAppIcon from '@material-ui/icons/GetApp'
+import DataUsageIcon from '@material-ui/icons/DataUsage'
+import CodeIcon from '@material-ui/icons/Code'
+import StorageIcon from '@material-ui/icons/Storage'
 import { about } from '../../portfolio'
 import './About.css'
 import { motion } from 'framer-motion'
 import Fade from 'react-reveal/Fade'
 import Typewriter from 'typewriter-effect'
-import { useState } from 'react'
 
 const About = () => {
-  const { name, role, description, resume, social, skills } = about
-  const [isResumeHovered, setIsResumeHovered] = useState(false)
+  const { name, role, description, social, skills } = about
+  
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { 
+        staggerChildren: 0.3
+      }
+    }
+  };
+  
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: { type: 'spring', stiffness: 100 }
+    }
+  };
   
   return (
     <div className='about'>
@@ -28,7 +47,13 @@ const About = () => {
                 A{' '}
                 <Typewriter
                   options={{
-                    strings: [role, 'Data Science Enthusiast', 'Problem Solver'],
+                    strings: [
+                      role, 
+                      'Data Science Enthusiast', 
+                      'Machine Learning Engineer', 
+                      'Data Analyst',
+                      'AI Researcher'
+                    ],
                     autoStart: true,
                     loop: true,
                     wrapperClassName: 'about__typed',
@@ -40,31 +65,27 @@ const About = () => {
             
             <p className='about__desc'>{description && description}</p>
 
-            <div className='about__contact'>
-              {resume && (
-                <motion.a 
-                  href={resume}
-                  className="about__resume-link"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onMouseEnter={() => setIsResumeHovered(true)}
-                  onMouseLeave={() => setIsResumeHovered(false)}
-                >
-                  <motion.span 
-                    type='button' 
-                    className='btn btn--outline about__resume-btn'
-                    animate={{ 
-                      backgroundColor: isResumeHovered ? 'var(--clr-primary)' : 'transparent',
-                      color: isResumeHovered ? 'var(--clr-bg)' : 'var(--clr-primary)'
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <GetAppIcon className={`about__resume-icon ${isResumeHovered ? 'active' : ''}`} />
-                    Download Resume
-                  </motion.span>
-                </motion.a>
-              )}
+            <motion.div 
+              className='about__data-icons'
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.div variants={itemVariants} className="data-icon-container">
+                <DataUsageIcon className="data-icon" />
+                <span>Data Analysis</span>
+              </motion.div>
+              <motion.div variants={itemVariants} className="data-icon-container">
+                <CodeIcon className="data-icon" />
+                <span>ML Algorithms</span>
+              </motion.div>
+              <motion.div variants={itemVariants} className="data-icon-container">
+                <StorageIcon className="data-icon" />
+                <span>Big Data</span>
+              </motion.div>
+            </motion.div>
 
+            <div className='about__contact'>
               {social && (
                 <div className='about__social'>
                   {social.github && (
@@ -93,8 +114,6 @@ const About = () => {
             </div>
           </Fade>
         </div>
-
-
       </div>
 
       {skills && skills.length > 0 && (
@@ -106,7 +125,13 @@ const About = () => {
                 <motion.span 
                   key={index} 
                   className='about__highlight-item'
-                  whileHover={{ scale: 1.1, backgroundColor: 'var(--clr-primary)', color: 'var(--clr-bg)' }}
+                  whileHover={{ 
+                    scale: 1.1, 
+                    backgroundColor: 'var(--clr-primary)', 
+                    color: 'var(--clr-bg)',
+                    boxShadow: '0 5px 15px rgba(0,0,0,0.2)'
+                  }}
+                  transition={{ type: 'spring', stiffness: 300 }}
                 >
                   {skill}
                 </motion.span>

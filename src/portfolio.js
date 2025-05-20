@@ -160,8 +160,8 @@ const testimonials = []
 const contact = {
   // email is optional - if left empty Contact section won't show up
   email: 'anushkab0602@gmail.com',
-  phone: '+91 9876543210',
-  location: 'Chennai, Tamil Nadu, India',
+  phone: '+91 9891458859',
+  location: 'Ghaziabad, Uttar Pradesh, India',
   social: [
     {
       name: 'LinkedIn',
