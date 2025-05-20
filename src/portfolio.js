@@ -78,24 +78,6 @@ const projects = [
     sourceCode: 'https://github.com/hive0372/ImageGenAI/blob/main/ImageGenAI',
 
     category: 'Machine Learning'
-  },
-  {
-    name: 'Data Visualization Dashboard',
-    description:
-      'Created an interactive dashboard for visualizing complex datasets, enabling users to gain insights through customizable charts and filters. Implemented using Python and modern visualization libraries.',
-    stack: ['Python', 'Plotly', 'Dash', 'Pandas'],
-    sourceCode: 'https://github.com/hive0372',
-
-    category: 'Data Science'
-  },
-  {
-    name: 'Personal Finance Tracker',
-    description:
-      'Developed a web application that helps users track their expenses, create budgets, and visualize spending patterns. Features include expense categorization and financial goal setting.',
-    stack: ['Python', 'Django', 'JavaScript', 'Chart.js'],
-    sourceCode: 'https://github.com/hive0372',
-
-    category: 'Web Development'
   }
 ]
 
