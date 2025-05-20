@@ -10,7 +10,6 @@ const about = {
   role: 'Computer Science Engineering Student',
   description:
     'I am Anushka Bandyopadhyay, a fourth-year student pursuing a B. Tech in Computer Science with a specialization in Information Technology at SRMIST. Aspiring Data Science professional with strong skills in Python, MySQL, and machine learning techniques. Passionate about leveraging data analysis to uncover insights and drive data-informed decisions for impactful solutions.',
-  resume: 'https://drive.google.com/file/d/1AzA9jIGf6IKf0KHRgx2oJorazLli4hk-/view?usp=sharing',
 
   skills: ['Python', 'Data Science', 'Machine Learning', 'SQL', 'Problem Solving'],
   social: {
