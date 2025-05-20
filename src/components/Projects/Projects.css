@@ -4,4 +4,104 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
   grid-gap: 2em;
+  min-height: 300px; /* Ensure grid has minimum height even when empty */
+}
+
+.projects__filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.projects__filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--clr-primary);
+  color: var(--clr-bg);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  z-index: 2;
+}
+
+.projects__filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--clr-bg-alt);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.projects__filter-btn {
+  background: var(--clr-bg);
+  color: var(--clr-fg);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+}
+
+.projects__filter-btn:hover {
+  background: var(--clr-primary-light);
+  color: var(--clr-bg);
+  transform: translateY(-2px);
+}
+
+.projects__filter-btn.active {
+  background: var(--clr-primary);
+  color: var(--clr-bg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.projects__empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  background-color: var(--clr-bg-alt);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.projects__reset-btn {
+  margin-top: 1rem;
+  background: var(--clr-primary);
+  color: var(--clr-bg);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .projects__filters {
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .projects__filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
 }

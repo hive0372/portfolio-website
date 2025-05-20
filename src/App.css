@@ -3,6 +3,7 @@
   line-height: 1.5;
   color: var(--clr-fg);
   background-color: var(--clr-bg);
+  scroll-behavior: smooth;
 }
 
 .light {
@@ -11,7 +12,12 @@
   --clr-fg: #555;
   --clr-fg-alt: #444;
   --clr-primary: #2978b5;
+  --clr-primary-rgb: 41, 120, 181;
+  --clr-primary-light: rgba(41, 120, 181, 0.1);
+  --clr-success: #4caf50;
+  --clr-success-light: rgba(76, 175, 80, 0.1);
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --shadow-hover: rgba(100, 100, 111, 0.3) 0px 10px 40px 0px;
 }
 
 .dark {
@@ -20,24 +26,52 @@
   --clr-fg: #bdbddd;
   --clr-fg-alt: #cdcdff;
   --clr-primary: #90a0d9;
+  --clr-primary-rgb: 144, 160, 217;
+  --clr-primary-light: rgba(144, 160, 217, 0.1);
+  --clr-success: #81c784;
+  --clr-success-light: rgba(129, 199, 132, 0.1);
   --shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  --shadow-hover: rgba(0, 0, 0, 0.25) 0px 15px 45px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
 }
 
 main {
   max-width: 1100px;
   width: 95%;
   margin: 0 auto;
+  padding-top: 7em;
 }
 
 .section {
   margin-top: 5em;
+  padding: 2em 0;
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 4px;
+  background-color: var(--clr-primary);
+  border-radius: 2px;
 }
 
 .section__title {
   text-align: center;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   text-transform: uppercase;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  color: var(--clr-primary);
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .center {
@@ -49,6 +83,8 @@ main {
   color: var(--clr-primary);
   padding: 0 0 0.3em 0;
   position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .link:hover {
@@ -63,7 +99,7 @@ main {
   position: absolute;
   bottom: 0;
   background-color: var(--clr-primary);
-  transition: width 0.2s ease-in;
+  transition: width 0.3s ease-in;
 }
 
 .link:hover::before,
@@ -73,22 +109,25 @@ main {
 
 .link--nav {
   color: var(--clr-fg);
-  text-transform: lowercase;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .link--icon {
   color: var(--clr-fg);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
 }
 
 .btn {
-  display: block;
+  display: inline-block;
   cursor: pointer;
   padding: 0.8em 1.4em;
   font-weight: 500;
   font-size: 0.9rem;
-  text-transform: lowercase;
-  transition: transform 0.2s ease-in-out;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .btn--outline {
@@ -97,6 +136,7 @@ main {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  background-color: transparent;
 }
 
 .btn--outline:hover,
@@ -113,7 +153,7 @@ main {
   left: 0;
   top: 0;
   z-index: -1;
-  transition: right 0.2s ease-in-out;
+  transition: right 0.3s ease-in-out;
 }
 
 .btn--outline:hover:before,
@@ -124,16 +164,20 @@ main {
 .btn--plain {
   text-transform: initial;
   background-color: var(--clr-bg-alt);
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  box-shadow: var(--shadow);
   border: 0;
+  border-radius: 8px;
 }
 
 .btn--plain:hover {
   transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
 }
 
 .btn--icon {
   padding: 0;
+  background: none;
+  border: none;
 }
 
 .btn--icon:hover,
@@ -145,8 +189,56 @@ main {
   transform: translateY(-5px);
 }
 
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .section__title {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 600px) {
+  main {
+    padding-top: 6em;
+  }
+  
   .section {
-    margin-top: 4em;
+    margin-top: 3em;
+  }
+  
+  .section__title {
+    font-size: 1.3rem;
   }
 }
